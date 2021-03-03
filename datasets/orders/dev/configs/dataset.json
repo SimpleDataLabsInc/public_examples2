@@ -1,0 +1,51 @@
+{
+  "description" : "e-commerce customer orders",
+  "datasetId" : "878",
+  "dataFormat" : "csv",
+  "datasetType" : "File",
+  "schema" : {
+    "type" : "struct",
+    "fields" : [ {
+      "name" : "order_id",
+      "type" : "integer",
+      "nullable" : true,
+      "metadata" : { }
+    }, {
+      "name" : "customer_id",
+      "type" : "integer",
+      "nullable" : true,
+      "metadata" : { }
+    }, {
+      "name" : "order_status",
+      "type" : "string",
+      "nullable" : true,
+      "metadata" : { }
+    }, {
+      "name" : "order_category",
+      "type" : "string",
+      "nullable" : true,
+      "metadata" : { }
+    }, {
+      "name" : "order_date",
+      "type" : "timestamp",
+      "nullable" : true,
+      "metadata" : { }
+    }, {
+      "name" : "amount",
+      "type" : "double",
+      "nullable" : true,
+      "metadata" : { }
+    } ]
+  },
+  "commonProperties" : {
+    "properties" : {
+      "location" : "dbfs:/Prophecy/raj@prophecy.io/OrdersDatasetInput.csv"
+    }
+  },
+  "inputProperties" : {
+    "properties" : {
+      "sep" : ",",
+      "header" : true
+    }
+  }
+}

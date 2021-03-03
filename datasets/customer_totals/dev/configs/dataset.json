@@ -1,0 +1,37 @@
+{
+  "description" : "customers by total of their purchases",
+  "datasetId" : "879",
+  "dataFormat" : "csv",
+  "datasetType" : "File",
+  "schema" : {
+    "type" : "struct",
+    "fields" : [ {
+      "name" : "name",
+      "type" : "string",
+      "nullable" : false,
+      "metadata" : { }
+    }, {
+      "name" : "amount",
+      "type" : "long",
+      "nullable" : false,
+      "metadata" : { }
+    }, {
+      "name" : "customer_id",
+      "type" : "integer",
+      "nullable" : false,
+      "metadata" : { }
+    } ]
+  },
+  "commonProperties" : {
+    "properties" : {
+      "location" : "dbfs:/Prophecy/raj@prophecy.io/CustomerTotals"
+    }
+  },
+  "outputProperties" : {
+    "properties" : {
+      "mode" : "overwrite",
+      "sep" : ",",
+      "header" : true
+    }
+  }
+}
