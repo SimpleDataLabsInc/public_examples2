@@ -15,7 +15,7 @@ import config.ConfigStore._
 import udfs.UDFs._
 import graph._
 
-@Visual(id = "Cleanup", label = "Cleanup", x = 882, y = 137, phase = 0)
+@Visual(id = "Cleanup", label = "Cleanup", x = 850, y = 193, phase = 0)
 object Cleanup {
 
   def apply(spark: SparkSession, in: DataFrame): Reformat = {

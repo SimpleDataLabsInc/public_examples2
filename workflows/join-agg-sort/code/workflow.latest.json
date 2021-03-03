@@ -24,7 +24,7 @@
       },
       "tgt" : {
         "port" : "left",
-        "process" : "ConnectByCustomer"
+        "process" : "PerCustomer"
       }
     }, {
       "metadata" : {
@@ -36,7 +36,7 @@
       },
       "tgt" : {
         "port" : "right",
-        "process" : "ConnectByCustomer"
+        "process" : "PerCustomer"
       }
     }, {
       "metadata" : {
@@ -44,7 +44,7 @@
       },
       "src" : {
         "port" : "out",
-        "process" : "ConnectByCustomer"
+        "process" : "PerCustomer"
       },
       "tgt" : {
         "port" : "in",
@@ -84,93 +84,42 @@
       },
       "tgt" : {
         "port" : "in",
-        "process" : "Target0"
+        "process" : "WriteReport"
       }
     } ],
     "groups" : [ ],
     "inports" : { },
     "outports" : { },
     "processes" : {
-      "SortBiggestOrders" : {
-        "component" : "OrderBy",
+      "WriteReport" : {
+        "component" : "Target",
         "metadata" : {
-          "label" : "SortBiggestOrders",
-          "x" : 1120,
-          "y" : 137
+          "label" : "WriteReport",
+          "x" : 1352,
+          "y" : 194
         },
         "ports" : {
           "inputs" : [ "in" ],
-          "outputs" : [ "out" ]
+          "outputs" : [ ]
         },
         "properties" : {
           "src_desc" : "",
           "phase" : 0,
           "ramp" : 0,
           "detailedStats" : false,
-          "columns" : [ {
-            "column" : {
-              "expr" : "col(\"amount\")",
-              "format" : "scala"
-            },
-            "order" : "desc"
-          } ],
+          "version" : 0,
+          "id" : "879",
           "udf_definitions" : [ ],
           "limit" : 0
         },
         "ignore" : false
       },
-      "Cleanup" : {
-        "component" : "Reformat",
-        "metadata" : {
-          "label" : "Cleanup",
-          "x" : 882,
-          "y" : 137
-        },
-        "ports" : {
-          "inputs" : [ "in" ],
-          "outputs" : [ "out" ]
-        },
-        "properties" : {
-          "src_desc" : "",
-          "phase" : 0,
-          "ramp" : 0,
-          "detailedStats" : false,
-          "udf_definitions" : [ ],
-          "functions" : [ {
-            "functionName" : "column_expression",
-            "addReplaceColumn" : "name",
-            "inputArgs" : [ {
-              "type" : "scala",
-              "expr" : "concat(col(\"first_name\"), lit(\" \"), col(\"last_name\"))"
-            } ],
-            "enabled" : true
-          }, {
-            "functionName" : "column_expression",
-            "addReplaceColumn" : "amount",
-            "inputArgs" : [ {
-              "type" : "scala",
-              "expr" : "ceil(col(\"amount\"))"
-            } ],
-            "enabled" : true
-          }, {
-            "functionName" : "column_expression",
-            "addReplaceColumn" : "customer_id",
-            "inputArgs" : [ {
-              "type" : "scala",
-              "expr" : "col(\"customer_id\")"
-            } ],
-            "enabled" : true
-          } ],
-          "limit" : 0
-        },
-        "ignore" : false
-      },
-      "ConnectByCustomer" : {
+      "PerCustomer" : {
         "component" : "Join",
         "metadata" : {
-          "label" : "ConnectByCustomer",
-          "x" : 405,
-          "y" : 139
+          "label" : "PerCustomer",
+          "x" : 369,
+          "y" : 192
         },
         "ports" : {
           "inputs" : [ "left", "right" ],
@@ -220,12 +169,86 @@
         },
         "ignore" : false
       },
+      "SortBiggestOrders" : {
+        "component" : "OrderBy",
+        "metadata" : {
+          "label" : "SortBiggestOrders",
+          "x" : 1104,
+          "y" : 194
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "columns" : [ {
+            "column" : {
+              "expr" : "col(\"amount\")",
+              "format" : "scala"
+            },
+            "order" : "desc"
+          } ],
+          "udf_definitions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "Cleanup" : {
+        "component" : "Reformat",
+        "metadata" : {
+          "label" : "Cleanup",
+          "x" : 850,
+          "y" : 193
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "udf_definitions" : [ ],
+          "functions" : [ {
+            "functionName" : "column_expression",
+            "addReplaceColumn" : "name",
+            "inputArgs" : [ {
+              "type" : "scala",
+              "expr" : "concat(col(\"first_name\"), lit(\" \"), col(\"last_name\"))"
+            } ],
+            "enabled" : true
+          }, {
+            "functionName" : "column_expression",
+            "addReplaceColumn" : "amount",
+            "inputArgs" : [ {
+              "type" : "scala",
+              "expr" : "ceil(col(\"amount\"))"
+            } ],
+            "enabled" : true
+          }, {
+            "functionName" : "column_expression",
+            "addReplaceColumn" : "customer_id",
+            "inputArgs" : [ {
+              "type" : "scala",
+              "expr" : "col(\"customer_id\")"
+            } ],
+            "enabled" : true
+          } ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
       "Customer" : {
         "component" : "Source",
         "metadata" : {
           "label" : "Customer",
-          "x" : 95,
-          "y" : 125
+          "x" : 88,
+          "y" : 179
         },
         "ports" : {
           "inputs" : [ ],
@@ -243,35 +266,12 @@
         },
         "ignore" : false
       },
-      "Target0" : {
-        "component" : "Target",
-        "metadata" : {
-          "label" : "Target0",
-          "x" : 1330,
-          "y" : 373
-        },
-        "ports" : {
-          "inputs" : [ "in" ],
-          "outputs" : [ ]
-        },
-        "properties" : {
-          "src_desc" : "",
-          "phase" : 0,
-          "ramp" : 0,
-          "detailedStats" : false,
-          "version" : 0,
-          "id" : "879",
-          "udf_definitions" : [ ],
-          "limit" : 0
-        },
-        "ignore" : false
-      },
       "TotalByCustomer" : {
         "component" : "Aggregate",
         "metadata" : {
           "label" : "TotalByCustomer",
-          "x" : 639,
-          "y" : 138
+          "x" : 601,
+          "y" : 192
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -318,8 +318,8 @@
         "component" : "Source",
         "metadata" : {
           "label" : "Orders",
-          "x" : 96,
-          "y" : 321
+          "x" : 91,
+          "y" : 420
         },
         "ports" : {
           "inputs" : [ ],

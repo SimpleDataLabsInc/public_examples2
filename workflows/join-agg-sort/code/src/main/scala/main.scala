@@ -21,11 +21,11 @@ object Main {
 
     val df_Customer:          Source    = Customer(spark)
     val df_Orders:            Source    = Orders(spark)
-    val df_ConnectByCustomer: Join      = ConnectByCustomer(spark, df_Customer, df_Orders)
-    val df_TotalByCustomer:   Aggregate = TotalByCustomer(spark,   df_ConnectByCustomer)
+    val df_PerCustomer:       Join      = PerCustomer(spark,       df_Customer, df_Orders)
+    val df_TotalByCustomer:   Aggregate = TotalByCustomer(spark,   df_PerCustomer)
     val df_Cleanup:           Reformat  = Cleanup(spark,           df_TotalByCustomer)
     val df_SortBiggestOrders: OrderBy   = SortBiggestOrders(spark, df_Cleanup)
-    Target0(spark, df_SortBiggestOrders)
+    WriteReport(spark, df_SortBiggestOrders)
 
   }
 

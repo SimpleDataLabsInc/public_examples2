@@ -15,7 +15,7 @@ import config.ConfigStore._
 import udfs.UDFs._
 import graph._
 
-@Visual(id = "Orders", label = "Orders", x = 96, y = 321, phase = 0)
+@Visual(id = "Orders", label = "Orders", x = 91, y = 420, phase = 0)
 object Orders {
 
   @UsesDataset(id = "878", version = 0)
