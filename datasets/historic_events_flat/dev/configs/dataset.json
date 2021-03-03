@@ -1,0 +1,43 @@
+{
+  "description" : "",
+  "datasetId" : "885",
+  "dataFormat" : "hive",
+  "datasetType" : "Table",
+  "schema" : {
+    "type" : "struct",
+    "fields" : [ {
+      "name" : "description",
+      "type" : "string",
+      "nullable" : false,
+      "metadata" : { }
+    }, {
+      "name" : "date",
+      "type" : "string",
+      "nullable" : false,
+      "metadata" : { }
+    }, {
+      "name" : "category1",
+      "type" : "string",
+      "nullable" : false,
+      "metadata" : { }
+    }, {
+      "name" : "category2",
+      "type" : "string",
+      "nullable" : false,
+      "metadata" : { }
+    } ]
+  },
+  "commonProperties" : {
+    "properties" : {
+      "tableName" : "prophecy_historic_event",
+      "databaseName" : "default"
+    }
+  },
+  "outputProperties" : {
+    "properties" : {
+      "provider" : "delta",
+      "mode" : "overwrite",
+      "fileFormat" : "parquet"
+    }
+  }
+}

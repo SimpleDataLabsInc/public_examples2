@@ -20,11 +20,11 @@
       },
       "src" : {
         "port" : "out",
-        "process" : "ReadGoT"
+        "process" : "HistoricEvents"
       },
       "tgt" : {
         "port" : "in",
-        "process" : "FlattenSchema0"
+        "process" : "ExtractAsTable"
       }
     }, {
       "metadata" : {
@@ -32,23 +32,46 @@
       },
       "src" : {
         "port" : "out",
-        "process" : "FlattenSchema0"
+        "process" : "ExtractAsTable"
       },
       "tgt" : {
         "port" : "in",
-        "process" : "Reformat0"
+        "process" : "WriteHistoric"
       }
     } ],
     "groups" : [ ],
     "inports" : { },
     "outports" : { },
     "processes" : {
-      "Reformat0" : {
-        "component" : "Reformat",
+      "WriteHistoric" : {
+        "component" : "Target",
         "metadata" : {
-          "label" : "Reformat0",
-          "x" : 552,
-          "y" : 135
+          "label" : "WriteHistoric",
+          "x" : 584,
+          "y" : 123
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "version" : 0,
+          "id" : "885",
+          "udf_definitions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "ExtractAsTable" : {
+        "component" : "FlattenSchema",
+        "metadata" : {
+          "label" : "ExtractAsTable",
+          "x" : 305,
+          "y" : 124
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -57,20 +80,51 @@
         "properties" : {
           "src_desc" : "",
           "phase" : 0,
+          "selectColumns" : [ {
+            "targetCol" : "description",
+            "expression" : {
+              "format" : "sql",
+              "expr" : "result.events.description"
+            },
+            "explode" : true
+          }, {
+            "targetCol" : "date",
+            "expression" : {
+              "format" : "sql",
+              "expr" : "result.events.date"
+            },
+            "explode" : true
+          }, {
+            "targetCol" : "category1",
+            "expression" : {
+              "format" : "sql",
+              "expr" : "result.events.category1"
+            },
+            "explode" : true
+          }, {
+            "targetCol" : "category2",
+            "expression" : {
+              "format" : "sql",
+              "expr" : "result.events.category2"
+            },
+            "explode" : true
+          } ],
           "ramp" : 0,
           "detailedStats" : false,
           "udf_definitions" : [ ],
-          "functions" : [ ],
-          "limit" : 0
+          "shorten" : true,
+          "limit" : 0,
+          "explodeColumns" : [ "result.events" ],
+          "delimiter" : "-"
         },
         "ignore" : false
       },
-      "ReadGoT" : {
+      "HistoricEvents" : {
         "component" : "Source",
         "metadata" : {
-          "label" : "ReadGoT",
-          "x" : 82,
-          "y" : 134
+          "label" : "HistoricEvents",
+          "x" : 70,
+          "y" : 122
         },
         "ports" : {
           "inputs" : [ ],
@@ -82,48 +136,9 @@
           "ramp" : 0,
           "detailedStats" : false,
           "version" : 0,
-          "id" : "881",
+          "id" : "884",
           "udf_definitions" : [ ],
           "limit" : 0
-        },
-        "ignore" : false
-      },
-      "FlattenSchema0" : {
-        "component" : "FlattenSchema",
-        "metadata" : {
-          "label" : "FlattenSchema0",
-          "x" : 320,
-          "y" : 135
-        },
-        "ports" : {
-          "inputs" : [ "in" ],
-          "outputs" : [ "out" ]
-        },
-        "properties" : {
-          "src_desc" : "",
-          "phase" : 0,
-          "selectColumns" : [ {
-            "targetCol" : "season_id",
-            "expression" : {
-              "format" : "sql",
-              "expr" : "allseasons.season_id"
-            },
-            "explode" : true
-          }, {
-            "targetCol" : "episodes",
-            "expression" : {
-              "format" : "sql",
-              "expr" : "allseasons.episodes"
-            },
-            "explode" : true
-          } ],
-          "ramp" : 0,
-          "detailedStats" : false,
-          "udf_definitions" : [ ],
-          "shorten" : true,
-          "limit" : 0,
-          "explodeColumns" : [ "allseasons", "allseasons.episodes" ],
-          "delimiter" : "-"
         },
         "ignore" : false
       }

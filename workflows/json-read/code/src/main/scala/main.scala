@@ -1,4 +1,3 @@
-import org.apache.spark.sql.types._
 import io.prophecy.libs._
 import io.prophecy.libs.UDFUtils._
 import io.prophecy.libs.Component._
@@ -9,6 +8,7 @@ import org.apache.spark.sql.ProphecyDataFrame._
 import org.apache.spark._
 import org.apache.spark.sql._
 import org.apache.spark.sql.functions._
+import org.apache.spark.sql.types._
 import config.ConfigStore._
 import udfs.UDFs._
 
@@ -19,9 +19,9 @@ object Main {
 
   def graph(spark: SparkSession): Unit = {
 
-    val df_ReadGoT:        Source        = ReadGoT(spark)
-    val df_FlattenSchema0: FlattenSchema = FlattenSchema0(spark, df_ReadGoT)
-    val df_Reformat0:      Reformat      = Reformat0(spark,      df_FlattenSchema0)
+    val df_HistoricEvents: Source        = HistoricEvents(spark)
+    val df_ExtractAsTable: FlattenSchema = ExtractAsTable(spark, df_HistoricEvents)
+    WriteHistoric(spark, df_ExtractAsTable)
 
   }
 
