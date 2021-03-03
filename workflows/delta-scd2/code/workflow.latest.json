@@ -1,0 +1,311 @@
+{
+  "resolvers" : [ ],
+  "graph" : {
+    "metainfo" : {
+      "cluster" : "local",
+      "id" : "id",
+      "memory" : 1,
+      "mode" : "batch",
+      "processors" : 1,
+      "language" : "scala",
+      "interimMode" : "full",
+      "udfs" : {
+        "language" : "scala",
+        "udfs" : [ ]
+      }
+    },
+    "connections" : [ {
+      "metadata" : {
+        "route" : "e1"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "CustomerDimOld"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "FixDates"
+      }
+    }, {
+      "metadata" : {
+        "route" : "e2"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "FixDates"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "OverwriteDelta"
+      }
+    }, {
+      "metadata" : {
+        "route" : "e3"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "CustomerEdits"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "AddDates"
+      }
+    }, {
+      "metadata" : {
+        "route" : "e4"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "AddDates"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "DeltaSCD2Merge"
+      }
+    }, {
+      "metadata" : {
+        "route" : "e5"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "ReadMerged"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "Observe"
+      }
+    } ],
+    "groups" : [ ],
+    "inports" : { },
+    "outports" : { },
+    "processes" : {
+      "AddDates" : {
+        "component" : "SchemaTransformer",
+        "metadata" : {
+          "label" : "AddDates",
+          "x" : 343,
+          "y" : 362
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 2,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "schema" : [ {
+            "functionName" : "withColumn",
+            "targetCol" : "eff_start_date",
+            "expression" : {
+              "format" : "scala",
+              "expr" : "current_date()"
+            }
+          }, {
+            "functionName" : "withColumn",
+            "targetCol" : "eff_end_date",
+            "expression" : {
+              "format" : "scala",
+              "expr" : "lit(\"9999-12-31\").cast(DateType)"
+            }
+          }, {
+            "functionName" : "withColumn",
+            "targetCol" : "is_current",
+            "expression" : {
+              "format" : "scala",
+              "expr" : "lit(1)"
+            }
+          }, {
+            "functionName" : "withColumn",
+            "targetCol" : "is_first",
+            "expression" : {
+              "format" : "scala",
+              "expr" : "lit(1)"
+            }
+          } ],
+          "udf_definitions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "DeltaSCD2Merge" : {
+        "component" : "Target",
+        "metadata" : {
+          "label" : "DeltaSCD2Merge",
+          "x" : 675,
+          "y" : 367
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 2,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "version" : 0,
+          "id" : "874",
+          "udf_definitions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "Observe" : {
+        "component" : "Target",
+        "metadata" : {
+          "label" : "Observe",
+          "x" : 352,
+          "y" : 607
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 3,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "version" : 0,
+          "id" : "875",
+          "udf_definitions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "OverwriteDelta" : {
+        "component" : "Target",
+        "metadata" : {
+          "label" : "OverwriteDelta",
+          "x" : 678,
+          "y" : 148
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 1,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "version" : 0,
+          "id" : "873",
+          "udf_definitions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "ReadMerged" : {
+        "component" : "Source",
+        "metadata" : {
+          "label" : "ReadMerged",
+          "x" : 92,
+          "y" : 607
+        },
+        "ports" : {
+          "inputs" : [ ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 3,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "version" : 0,
+          "id" : "873",
+          "udf_definitions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "CustomerEdits" : {
+        "component" : "Source",
+        "metadata" : {
+          "label" : "CustomerEdits",
+          "x" : 89,
+          "y" : 363
+        },
+        "ports" : {
+          "inputs" : [ ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 2,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "version" : 0,
+          "id" : "872",
+          "udf_definitions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "FixDates" : {
+        "component" : "SchemaTransformer",
+        "metadata" : {
+          "label" : "FixDates",
+          "x" : 347,
+          "y" : 143
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 1,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "schema" : [ {
+            "functionName" : "withColumn",
+            "targetCol" : "eff_start_date",
+            "expression" : {
+              "format" : "scala",
+              "expr" : "col(\"eff_start_date\").cast(DateType)"
+            }
+          }, {
+            "functionName" : "withColumn",
+            "targetCol" : "eff_end_date",
+            "expression" : {
+              "format" : "scala",
+              "expr" : "col(\"eff_end_date\").cast(DateType)"
+            }
+          }, {
+            "functionName" : "drop",
+            "sourceCol" : "customer_dim_key"
+          } ],
+          "udf_definitions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "CustomerDimOld" : {
+        "component" : "Source",
+        "metadata" : {
+          "label" : "CustomerDimOld",
+          "x" : 91,
+          "y" : 141
+        },
+        "ports" : {
+          "inputs" : [ ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 1,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "version" : 0,
+          "id" : "876",
+          "udf_definitions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      }
+    }
+  }
+}

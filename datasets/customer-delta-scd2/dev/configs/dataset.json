@@ -1,0 +1,84 @@
+{
+  "description" : "customer dimension ",
+  "datasetId" : "873",
+  "dataFormat" : "delta",
+  "datasetType" : "File",
+  "schema" : {
+    "type" : "struct",
+    "fields" : [ {
+      "name" : "first_name",
+      "type" : "string",
+      "nullable" : true,
+      "metadata" : { }
+    }, {
+      "name" : "last_name",
+      "type" : "string",
+      "nullable" : true,
+      "metadata" : { }
+    }, {
+      "name" : "middle_initial",
+      "type" : "string",
+      "nullable" : true,
+      "metadata" : { }
+    }, {
+      "name" : "address",
+      "type" : "string",
+      "nullable" : true,
+      "metadata" : { }
+    }, {
+      "name" : "city",
+      "type" : "string",
+      "nullable" : true,
+      "metadata" : { }
+    }, {
+      "name" : "state",
+      "type" : "string",
+      "nullable" : true,
+      "metadata" : { }
+    }, {
+      "name" : "zip_code",
+      "type" : "string",
+      "nullable" : true,
+      "metadata" : { }
+    }, {
+      "name" : "customer_number",
+      "type" : "integer",
+      "nullable" : true,
+      "metadata" : { }
+    }, {
+      "name" : "is_current",
+      "type" : "boolean",
+      "nullable" : true,
+      "metadata" : { }
+    }, {
+      "name" : "is_first",
+      "type" : "boolean",
+      "nullable" : true,
+      "metadata" : { }
+    }, {
+      "name" : "eff_start_date",
+      "type" : "date",
+      "nullable" : true,
+      "metadata" : { }
+    }, {
+      "name" : "eff_end_date",
+      "type" : "date",
+      "nullable" : true,
+      "metadata" : { }
+    } ]
+  },
+  "commonProperties" : {
+    "properties" : {
+      "location" : "dbfs:/Prophecy/raj@prophecy.io/delta-scd2-customer"
+    }
+  },
+  "inputProperties" : {
+    "properties" : { }
+  },
+  "outputProperties" : {
+    "properties" : {
+      "mode" : "overwrite",
+      "overwriteSchema" : true
+    }
+  }
+}

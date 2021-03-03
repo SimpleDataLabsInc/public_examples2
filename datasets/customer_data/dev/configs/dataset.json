@@ -1,0 +1,90 @@
+{
+  "inputProperties" : {
+    "properties" : { }
+  },
+  "commonProperties" : {
+    "properties" : {
+      "testData" : {
+        "data" : [ [ 31568, "William", "Chase", "X", "57895 Sharp Way", "Oldtown", "CA", "98554-1285" ], [ 289374, "John", "Smith", "G", "456 Derry Court", "Springville", "VT", "01234-5678" ], [ 862447, "Susan", "Harris", "L", "987 Central Avenue", "Central City", "MO", "49257-2657" ], [ 932574, "Lisa", "Cohen", "S", "68846 Mason Road", "Atlanta", "GA", "26584-3591" ] ],
+        "schema" : {
+          "type" : "struct",
+          "fields" : [ {
+            "name" : "customer_number",
+            "type" : "integer",
+            "nullable" : true
+          }, {
+            "name" : "first_name",
+            "type" : "string",
+            "nullable" : true
+          }, {
+            "name" : "last_name",
+            "type" : "string",
+            "nullable" : true
+          }, {
+            "name" : "middle_initial",
+            "type" : "string",
+            "nullable" : true
+          }, {
+            "name" : "address",
+            "type" : "string",
+            "nullable" : true
+          }, {
+            "name" : "city",
+            "type" : "string",
+            "nullable" : true
+          }, {
+            "name" : "state",
+            "type" : "string",
+            "nullable" : true
+          }, {
+            "name" : "zip_code",
+            "type" : "string",
+            "nullable" : true,
+            "metadata" : { }
+          } ]
+        }
+      }
+    }
+  },
+  "datasetId" : "872",
+  "schema" : {
+    "type" : "struct",
+    "fields" : [ {
+      "name" : "customer_number",
+      "type" : "integer",
+      "nullable" : true
+    }, {
+      "name" : "first_name",
+      "type" : "string",
+      "nullable" : true
+    }, {
+      "name" : "last_name",
+      "type" : "string",
+      "nullable" : true
+    }, {
+      "name" : "middle_initial",
+      "type" : "string",
+      "nullable" : true
+    }, {
+      "name" : "address",
+      "type" : "string",
+      "nullable" : true
+    }, {
+      "name" : "city",
+      "type" : "string",
+      "nullable" : true
+    }, {
+      "name" : "state",
+      "type" : "string",
+      "nullable" : true
+    }, {
+      "name" : "zip_code",
+      "type" : "string",
+      "nullable" : true,
+      "metadata" : { }
+    } ]
+  },
+  "datasetType" : "TestData",
+  "description" : "new arriving customer data from operational system",
+  "dataFormat" : "custom"
+}
