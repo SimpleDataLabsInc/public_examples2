@@ -1,0 +1,63 @@
+{
+  "description" : "/FileStore/tables/allseasons-1.json",
+  "datasetId" : "881",
+  "dataFormat" : "json",
+  "datasetType" : "File",
+  "schema" : {
+    "type" : "struct",
+    "fields" : [ {
+      "name" : "allseasons",
+      "type" : {
+        "type" : "array",
+        "elementType" : {
+          "type" : "struct",
+          "fields" : [ {
+            "name" : "episodes",
+            "type" : {
+              "type" : "array",
+              "elementType" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "episode",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : { }
+                }, {
+                  "name" : "quotes",
+                  "type" : {
+                    "type" : "array",
+                    "elementType" : "string",
+                    "containsNull" : true
+                  },
+                  "nullable" : true,
+                  "metadata" : { }
+                } ]
+              },
+              "containsNull" : true
+            },
+            "nullable" : true,
+            "metadata" : { }
+          }, {
+            "name" : "season_id",
+            "type" : "long",
+            "nullable" : true,
+            "metadata" : { }
+          } ]
+        },
+        "containsNull" : true
+      },
+      "nullable" : true,
+      "metadata" : { }
+    } ]
+  },
+  "commonProperties" : {
+    "properties" : {
+      "location" : "dbfs:/FileStore/tables/allseasons_raj.json"
+    }
+  },
+  "inputProperties" : {
+    "properties" : {
+      "multiLine" : true
+    }
+  }
+}

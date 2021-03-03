@@ -39,8 +39,8 @@ object CustomerDimOld {
             StructField("customer_number",  IntegerType, true),
             StructField("eff_start_date",   StringType,  true),
             StructField("eff_end_date",     StringType,  true),
-            StructField("is_current",       StringType,  true),
-            StructField("is_first",         StringType,  true)
+            StructField("is_current",       IntegerType, true),
+            StructField("is_first",         IntegerType, true)
           )
         )
         val data = Seq(
@@ -53,10 +53,10 @@ object CustomerDimOld {
               "VT",
               "01234-5678",
               289374,
-              "1/1/14",
-              "12/31/99",
-              "1",
-              "1"
+              "2014-1-1",
+              "9999-12-31",
+              1,
+              1
           ),
           Row("2",
               "Susan",
@@ -67,10 +67,10 @@ object CustomerDimOld {
               "MO",
               "49257-2657",
               862447,
-              "3/23/15",
-              "11/17/18",
-              "0",
-              "1"
+              "2015-3-23",
+              "2018-11-17",
+              0,
+              1
           ),
           Row("3",
               "Susan",
@@ -81,10 +81,10 @@ object CustomerDimOld {
               "MO",
               "49257-2657",
               862447,
-              "11/18/18",
-              "12/31/99",
-              "1",
-              "0"
+              "2018-11-18",
+              "9999-12-31",
+              1,
+              0
           ),
           Row("4",
               "William",
@@ -95,10 +95,10 @@ object CustomerDimOld {
               "CA",
               "98554-1285",
               31568,
-              "12/7/18",
-              "12/31/99",
-              "1",
-              "1"
+              "2018-12-7",
+              "9999-12-31",
+              1,
+              1
           )
         )
         spark.createDataFrame(spark.sparkContext.parallelize(data), schemaArg)

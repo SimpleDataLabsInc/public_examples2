@@ -1,0 +1,132 @@
+{
+  "resolvers" : [ ],
+  "graph" : {
+    "metainfo" : {
+      "cluster" : "local",
+      "id" : "id",
+      "memory" : 1,
+      "mode" : "batch",
+      "processors" : 1,
+      "language" : "scala",
+      "interimMode" : "full",
+      "udfs" : {
+        "language" : "scala",
+        "udfs" : [ ]
+      }
+    },
+    "connections" : [ {
+      "metadata" : {
+        "route" : "e1"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "ReadGoT"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "FlattenSchema0"
+      }
+    }, {
+      "metadata" : {
+        "route" : "e2"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "FlattenSchema0"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "Reformat0"
+      }
+    } ],
+    "groups" : [ ],
+    "inports" : { },
+    "outports" : { },
+    "processes" : {
+      "Reformat0" : {
+        "component" : "Reformat",
+        "metadata" : {
+          "label" : "Reformat0",
+          "x" : 552,
+          "y" : 135
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "udf_definitions" : [ ],
+          "functions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "ReadGoT" : {
+        "component" : "Source",
+        "metadata" : {
+          "label" : "ReadGoT",
+          "x" : 82,
+          "y" : 134
+        },
+        "ports" : {
+          "inputs" : [ ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "version" : 0,
+          "id" : "881",
+          "udf_definitions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "FlattenSchema0" : {
+        "component" : "FlattenSchema",
+        "metadata" : {
+          "label" : "FlattenSchema0",
+          "x" : 320,
+          "y" : 135
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "selectColumns" : [ {
+            "targetCol" : "season_id",
+            "expression" : {
+              "format" : "sql",
+              "expr" : "allseasons.season_id"
+            },
+            "explode" : true
+          }, {
+            "targetCol" : "episodes",
+            "expression" : {
+              "format" : "sql",
+              "expr" : "allseasons.episodes"
+            },
+            "explode" : true
+          } ],
+          "ramp" : 0,
+          "detailedStats" : false,
+          "udf_definitions" : [ ],
+          "shorten" : true,
+          "limit" : 0,
+          "explodeColumns" : [ "allseasons", "allseasons.episodes" ],
+          "delimiter" : "-"
+        },
+        "ignore" : false
+      }
+    }
+  }
+}

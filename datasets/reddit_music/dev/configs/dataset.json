@@ -1,0 +1,1055 @@
+{
+  "datasetId" : "880",
+  "schema" : {
+    "type" : "struct",
+    "fields" : [ {
+      "name" : "data",
+      "type" : {
+        "type" : "struct",
+        "fields" : [ {
+          "name" : "after",
+          "type" : "string",
+          "nullable" : true,
+          "metadata" : { }
+        }, {
+          "name" : "before",
+          "type" : "string",
+          "nullable" : true,
+          "metadata" : { }
+        }, {
+          "name" : "children",
+          "type" : {
+            "type" : "array",
+            "elementType" : {
+              "type" : "struct",
+              "fields" : [ {
+                "name" : "data",
+                "type" : {
+                  "type" : "struct",
+                  "fields" : [ {
+                    "name" : "all_awardings",
+                    "type" : {
+                      "type" : "array",
+                      "elementType" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "award_sub_type",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : { }
+                        }, {
+                          "name" : "award_type",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : { }
+                        }, {
+                          "name" : "awardings_required_to_grant_benefits",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : { }
+                        }, {
+                          "name" : "coin_price",
+                          "type" : "long",
+                          "nullable" : true,
+                          "metadata" : { }
+                        }, {
+                          "name" : "coin_reward",
+                          "type" : "long",
+                          "nullable" : true,
+                          "metadata" : { }
+                        }, {
+                          "name" : "count",
+                          "type" : "long",
+                          "nullable" : true,
+                          "metadata" : { }
+                        }, {
+                          "name" : "days_of_drip_extension",
+                          "type" : "long",
+                          "nullable" : true,
+                          "metadata" : { }
+                        }, {
+                          "name" : "days_of_premium",
+                          "type" : "long",
+                          "nullable" : true,
+                          "metadata" : { }
+                        }, {
+                          "name" : "description",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : { }
+                        }, {
+                          "name" : "end_date",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : { }
+                        }, {
+                          "name" : "giver_coin_reward",
+                          "type" : "long",
+                          "nullable" : true,
+                          "metadata" : { }
+                        }, {
+                          "name" : "icon_format",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : { }
+                        }, {
+                          "name" : "icon_height",
+                          "type" : "long",
+                          "nullable" : true,
+                          "metadata" : { }
+                        }, {
+                          "name" : "icon_url",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : { }
+                        }, {
+                          "name" : "icon_width",
+                          "type" : "long",
+                          "nullable" : true,
+                          "metadata" : { }
+                        }, {
+                          "name" : "id",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : { }
+                        }, {
+                          "name" : "is_enabled",
+                          "type" : "boolean",
+                          "nullable" : true,
+                          "metadata" : { }
+                        }, {
+                          "name" : "is_new",
+                          "type" : "boolean",
+                          "nullable" : true,
+                          "metadata" : { }
+                        }, {
+                          "name" : "name",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : { }
+                        }, {
+                          "name" : "penny_donate",
+                          "type" : "long",
+                          "nullable" : true,
+                          "metadata" : { }
+                        }, {
+                          "name" : "penny_price",
+                          "type" : "long",
+                          "nullable" : true,
+                          "metadata" : { }
+                        }, {
+                          "name" : "resized_icons",
+                          "type" : {
+                            "type" : "array",
+                            "elementType" : {
+                              "type" : "struct",
+                              "fields" : [ {
+                                "name" : "height",
+                                "type" : "long",
+                                "nullable" : true,
+                                "metadata" : { }
+                              }, {
+                                "name" : "url",
+                                "type" : "string",
+                                "nullable" : true,
+                                "metadata" : { }
+                              }, {
+                                "name" : "width",
+                                "type" : "long",
+                                "nullable" : true,
+                                "metadata" : { }
+                              } ]
+                            },
+                            "containsNull" : true
+                          },
+                          "nullable" : true,
+                          "metadata" : { }
+                        }, {
+                          "name" : "resized_static_icons",
+                          "type" : {
+                            "type" : "array",
+                            "elementType" : {
+                              "type" : "struct",
+                              "fields" : [ {
+                                "name" : "height",
+                                "type" : "long",
+                                "nullable" : true,
+                                "metadata" : { }
+                              }, {
+                                "name" : "url",
+                                "type" : "string",
+                                "nullable" : true,
+                                "metadata" : { }
+                              }, {
+                                "name" : "width",
+                                "type" : "long",
+                                "nullable" : true,
+                                "metadata" : { }
+                              } ]
+                            },
+                            "containsNull" : true
+                          },
+                          "nullable" : true,
+                          "metadata" : { }
+                        }, {
+                          "name" : "start_date",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : { }
+                        }, {
+                          "name" : "static_icon_height",
+                          "type" : "long",
+                          "nullable" : true,
+                          "metadata" : { }
+                        }, {
+                          "name" : "static_icon_url",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : { }
+                        }, {
+                          "name" : "static_icon_width",
+                          "type" : "long",
+                          "nullable" : true,
+                          "metadata" : { }
+                        }, {
+                          "name" : "subreddit_coin_reward",
+                          "type" : "long",
+                          "nullable" : true,
+                          "metadata" : { }
+                        }, {
+                          "name" : "subreddit_id",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : { }
+                        }, {
+                          "name" : "tiers_by_required_awardings",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : { }
+                        } ]
+                      },
+                      "containsNull" : true
+                    },
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "allow_live_comments",
+                    "type" : "boolean",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "approved_at_utc",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "approved_by",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "archived",
+                    "type" : "boolean",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "author",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "author_flair_background_color",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "author_flair_css_class",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "author_flair_richtext",
+                    "type" : {
+                      "type" : "array",
+                      "elementType" : "string",
+                      "containsNull" : true
+                    },
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "author_flair_template_id",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "author_flair_text",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "author_flair_text_color",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "author_flair_type",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "author_fullname",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "author_patreon_flair",
+                    "type" : "boolean",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "author_premium",
+                    "type" : "boolean",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "awarders",
+                    "type" : {
+                      "type" : "array",
+                      "elementType" : "string",
+                      "containsNull" : true
+                    },
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "banned_at_utc",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "banned_by",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "can_gild",
+                    "type" : "boolean",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "can_mod_post",
+                    "type" : "boolean",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "category",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "clicked",
+                    "type" : "boolean",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "content_categories",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "contest_mode",
+                    "type" : "boolean",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "created",
+                    "type" : "double",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "created_utc",
+                    "type" : "double",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "discussion_type",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "distinguished",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "domain",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "downs",
+                    "type" : "long",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "edited",
+                    "type" : "boolean",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "gilded",
+                    "type" : "long",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "gildings",
+                    "type" : {
+                      "type" : "struct",
+                      "fields" : [ {
+                        "name" : "gid_1",
+                        "type" : "long",
+                        "nullable" : true,
+                        "metadata" : { }
+                      } ]
+                    },
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "hidden",
+                    "type" : "boolean",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "hide_score",
+                    "type" : "boolean",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "id",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "is_crosspostable",
+                    "type" : "boolean",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "is_meta",
+                    "type" : "boolean",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "is_original_content",
+                    "type" : "boolean",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "is_reddit_media_domain",
+                    "type" : "boolean",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "is_robot_indexable",
+                    "type" : "boolean",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "is_self",
+                    "type" : "boolean",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "is_video",
+                    "type" : "boolean",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "likes",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "link_flair_background_color",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "link_flair_css_class",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "link_flair_richtext",
+                    "type" : {
+                      "type" : "array",
+                      "elementType" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "e",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : { }
+                        }, {
+                          "name" : "t",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : { }
+                        } ]
+                      },
+                      "containsNull" : true
+                    },
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "link_flair_template_id",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "link_flair_text",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "link_flair_text_color",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "link_flair_type",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "locked",
+                    "type" : "boolean",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "media",
+                    "type" : {
+                      "type" : "struct",
+                      "fields" : [ {
+                        "name" : "oembed",
+                        "type" : {
+                          "type" : "struct",
+                          "fields" : [ {
+                            "name" : "author_name",
+                            "type" : "string",
+                            "nullable" : true,
+                            "metadata" : { }
+                          }, {
+                            "name" : "author_url",
+                            "type" : "string",
+                            "nullable" : true,
+                            "metadata" : { }
+                          }, {
+                            "name" : "height",
+                            "type" : "long",
+                            "nullable" : true,
+                            "metadata" : { }
+                          }, {
+                            "name" : "html",
+                            "type" : "string",
+                            "nullable" : true,
+                            "metadata" : { }
+                          }, {
+                            "name" : "provider_name",
+                            "type" : "string",
+                            "nullable" : true,
+                            "metadata" : { }
+                          }, {
+                            "name" : "provider_url",
+                            "type" : "string",
+                            "nullable" : true,
+                            "metadata" : { }
+                          }, {
+                            "name" : "thumbnail_height",
+                            "type" : "long",
+                            "nullable" : true,
+                            "metadata" : { }
+                          }, {
+                            "name" : "thumbnail_url",
+                            "type" : "string",
+                            "nullable" : true,
+                            "metadata" : { }
+                          }, {
+                            "name" : "thumbnail_width",
+                            "type" : "long",
+                            "nullable" : true,
+                            "metadata" : { }
+                          }, {
+                            "name" : "title",
+                            "type" : "string",
+                            "nullable" : true,
+                            "metadata" : { }
+                          }, {
+                            "name" : "type",
+                            "type" : "string",
+                            "nullable" : true,
+                            "metadata" : { }
+                          }, {
+                            "name" : "version",
+                            "type" : "string",
+                            "nullable" : true,
+                            "metadata" : { }
+                          }, {
+                            "name" : "width",
+                            "type" : "long",
+                            "nullable" : true,
+                            "metadata" : { }
+                          } ]
+                        },
+                        "nullable" : true,
+                        "metadata" : { }
+                      }, {
+                        "name" : "type",
+                        "type" : "string",
+                        "nullable" : true,
+                        "metadata" : { }
+                      } ]
+                    },
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "media_embed",
+                    "type" : {
+                      "type" : "struct",
+                      "fields" : [ {
+                        "name" : "content",
+                        "type" : "string",
+                        "nullable" : true,
+                        "metadata" : { }
+                      }, {
+                        "name" : "height",
+                        "type" : "long",
+                        "nullable" : true,
+                        "metadata" : { }
+                      }, {
+                        "name" : "scrolling",
+                        "type" : "boolean",
+                        "nullable" : true,
+                        "metadata" : { }
+                      }, {
+                        "name" : "width",
+                        "type" : "long",
+                        "nullable" : true,
+                        "metadata" : { }
+                      } ]
+                    },
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "media_only",
+                    "type" : "boolean",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "mod_note",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "mod_reason_by",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "mod_reason_title",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "mod_reports",
+                    "type" : {
+                      "type" : "array",
+                      "elementType" : "string",
+                      "containsNull" : true
+                    },
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "name",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "no_follow",
+                    "type" : "boolean",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "num_comments",
+                    "type" : "long",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "num_crossposts",
+                    "type" : "long",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "num_reports",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "over_18",
+                    "type" : "boolean",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "parent_whitelist_status",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "permalink",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "pinned",
+                    "type" : "boolean",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "pwls",
+                    "type" : "long",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "quarantine",
+                    "type" : "boolean",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "removal_reason",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "removed_by",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "removed_by_category",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "report_reasons",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "saved",
+                    "type" : "boolean",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "score",
+                    "type" : "long",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "secure_media",
+                    "type" : {
+                      "type" : "struct",
+                      "fields" : [ {
+                        "name" : "oembed",
+                        "type" : {
+                          "type" : "struct",
+                          "fields" : [ {
+                            "name" : "author_name",
+                            "type" : "string",
+                            "nullable" : true,
+                            "metadata" : { }
+                          }, {
+                            "name" : "author_url",
+                            "type" : "string",
+                            "nullable" : true,
+                            "metadata" : { }
+                          }, {
+                            "name" : "height",
+                            "type" : "long",
+                            "nullable" : true,
+                            "metadata" : { }
+                          }, {
+                            "name" : "html",
+                            "type" : "string",
+                            "nullable" : true,
+                            "metadata" : { }
+                          }, {
+                            "name" : "provider_name",
+                            "type" : "string",
+                            "nullable" : true,
+                            "metadata" : { }
+                          }, {
+                            "name" : "provider_url",
+                            "type" : "string",
+                            "nullable" : true,
+                            "metadata" : { }
+                          }, {
+                            "name" : "thumbnail_height",
+                            "type" : "long",
+                            "nullable" : true,
+                            "metadata" : { }
+                          }, {
+                            "name" : "thumbnail_url",
+                            "type" : "string",
+                            "nullable" : true,
+                            "metadata" : { }
+                          }, {
+                            "name" : "thumbnail_width",
+                            "type" : "long",
+                            "nullable" : true,
+                            "metadata" : { }
+                          }, {
+                            "name" : "title",
+                            "type" : "string",
+                            "nullable" : true,
+                            "metadata" : { }
+                          }, {
+                            "name" : "type",
+                            "type" : "string",
+                            "nullable" : true,
+                            "metadata" : { }
+                          }, {
+                            "name" : "version",
+                            "type" : "string",
+                            "nullable" : true,
+                            "metadata" : { }
+                          }, {
+                            "name" : "width",
+                            "type" : "long",
+                            "nullable" : true,
+                            "metadata" : { }
+                          } ]
+                        },
+                        "nullable" : true,
+                        "metadata" : { }
+                      }, {
+                        "name" : "type",
+                        "type" : "string",
+                        "nullable" : true,
+                        "metadata" : { }
+                      } ]
+                    },
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "secure_media_embed",
+                    "type" : {
+                      "type" : "struct",
+                      "fields" : [ {
+                        "name" : "content",
+                        "type" : "string",
+                        "nullable" : true,
+                        "metadata" : { }
+                      }, {
+                        "name" : "height",
+                        "type" : "long",
+                        "nullable" : true,
+                        "metadata" : { }
+                      }, {
+                        "name" : "media_domain_url",
+                        "type" : "string",
+                        "nullable" : true,
+                        "metadata" : { }
+                      }, {
+                        "name" : "scrolling",
+                        "type" : "boolean",
+                        "nullable" : true,
+                        "metadata" : { }
+                      }, {
+                        "name" : "width",
+                        "type" : "long",
+                        "nullable" : true,
+                        "metadata" : { }
+                      } ]
+                    },
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "selftext",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "selftext_html",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "send_replies",
+                    "type" : "boolean",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "spoiler",
+                    "type" : "boolean",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "stickied",
+                    "type" : "boolean",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "subreddit",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "subreddit_id",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "subreddit_name_prefixed",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "subreddit_subscribers",
+                    "type" : "long",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "subreddit_type",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "suggested_sort",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "thumbnail",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "title",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "top_awarded_type",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "total_awards_received",
+                    "type" : "long",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "treatment_tags",
+                    "type" : {
+                      "type" : "array",
+                      "elementType" : "string",
+                      "containsNull" : true
+                    },
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "ups",
+                    "type" : "long",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "upvote_ratio",
+                    "type" : "double",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "url",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "url_overridden_by_dest",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "user_reports",
+                    "type" : {
+                      "type" : "array",
+                      "elementType" : "string",
+                      "containsNull" : true
+                    },
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "view_count",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "visited",
+                    "type" : "boolean",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "whitelist_status",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : { }
+                  }, {
+                    "name" : "wls",
+                    "type" : "long",
+                    "nullable" : true,
+                    "metadata" : { }
+                  } ]
+                },
+                "nullable" : true,
+                "metadata" : { }
+              }, {
+                "name" : "kind",
+                "type" : "string",
+                "nullable" : true,
+                "metadata" : { }
+              } ]
+            },
+            "containsNull" : true
+          },
+          "nullable" : true,
+          "metadata" : { }
+        }, {
+          "name" : "dist",
+          "type" : "long",
+          "nullable" : true,
+          "metadata" : { }
+        }, {
+          "name" : "modhash",
+          "type" : "string",
+          "nullable" : true,
+          "metadata" : { }
+        } ]
+      },
+      "nullable" : true,
+      "metadata" : { }
+    }, {
+      "name" : "kind",
+      "type" : "string",
+      "nullable" : true,
+      "metadata" : { }
+    } ]
+  },
+  "datasetType" : "File",
+  "description" : "read music subreddit as json",
+  "commonProperties" : {
+    "properties" : {
+      "location" : "dbfs:/mnt/music.json"
+    }
+  },
+  "dataFormat" : "json",
+  "inputProperties" : {
+    "properties" : { }
+  }
+}

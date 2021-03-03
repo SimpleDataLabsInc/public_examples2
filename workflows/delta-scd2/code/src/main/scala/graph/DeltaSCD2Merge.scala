@@ -16,7 +16,7 @@ import config.ConfigStore._
 import udfs.UDFs._
 import graph._
 
-@Visual(id = "DeltaSCD2Merge", label = "DeltaSCD2Merge", x = 675, y = 367, phase = 2)
+@Visual(id = "DeltaSCD2Merge", label = "DeltaSCD2Merge", x = 684, y = 365, phase = 2)
 object DeltaSCD2Merge {
 
   @UsesDataset(id = "874", version = 0)
@@ -51,9 +51,9 @@ object DeltaSCD2Merge {
         val exitingTableLocation = "dbfs:/Prophecy/raj@prophecy.io/delta-scd2-customer"
         val flagY                = 1
         val flagN                = 0
+        val updatesDF            = in.withColumn(minFlagColumn, lit(flagY)).withColumn(maxFlagColumn, lit(flagY))
 
-        val updateColumns: Array[String] = in.columns
-        val updatesDF = in
+        val updateColumns: Array[String] = updatesDF.columns
 
         val existingTable: DeltaTable = DeltaTable.forPath("dbfs:/Prophecy/raj@prophecy.io/delta-scd2-customer")
         val existingDF:    DataFrame  = existingTable.toDF

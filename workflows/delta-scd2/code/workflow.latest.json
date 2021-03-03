@@ -20,6 +20,18 @@
       },
       "src" : {
         "port" : "out",
+        "process" : "CustomerEdits"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "AddDates"
+      }
+    }, {
+      "metadata" : {
+        "route" : "e2"
+      },
+      "src" : {
+        "port" : "out",
         "process" : "CustomerDimOld"
       },
       "tgt" : {
@@ -28,7 +40,7 @@
       }
     }, {
       "metadata" : {
-        "route" : "e2"
+        "route" : "e3"
       },
       "src" : {
         "port" : "out",
@@ -37,18 +49,6 @@
       "tgt" : {
         "port" : "in",
         "process" : "OverwriteDelta"
-      }
-    }, {
-      "metadata" : {
-        "route" : "e3"
-      },
-      "src" : {
-        "port" : "out",
-        "process" : "CustomerEdits"
-      },
-      "tgt" : {
-        "port" : "in",
-        "process" : "AddDates"
       }
     }, {
       "metadata" : {
@@ -109,20 +109,6 @@
               "format" : "scala",
               "expr" : "lit(\"9999-12-31\").cast(DateType)"
             }
-          }, {
-            "functionName" : "withColumn",
-            "targetCol" : "is_current",
-            "expression" : {
-              "format" : "scala",
-              "expr" : "lit(1)"
-            }
-          }, {
-            "functionName" : "withColumn",
-            "targetCol" : "is_first",
-            "expression" : {
-              "format" : "scala",
-              "expr" : "lit(1)"
-            }
           } ],
           "udf_definitions" : [ ],
           "limit" : 0
@@ -133,8 +119,8 @@
         "component" : "Target",
         "metadata" : {
           "label" : "DeltaSCD2Merge",
-          "x" : 675,
-          "y" : 367
+          "x" : 684,
+          "y" : 365
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -179,8 +165,8 @@
         "component" : "Target",
         "metadata" : {
           "label" : "OverwriteDelta",
-          "x" : 678,
-          "y" : 148
+          "x" : 690,
+          "y" : 140
         },
         "ports" : {
           "inputs" : [ "in" ],

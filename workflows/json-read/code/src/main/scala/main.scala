@@ -1,3 +1,4 @@
+import org.apache.spark.sql.types._
 import io.prophecy.libs._
 import io.prophecy.libs.UDFUtils._
 import io.prophecy.libs.Component._
@@ -8,7 +9,6 @@ import org.apache.spark.sql.ProphecyDataFrame._
 import org.apache.spark._
 import org.apache.spark.sql._
 import org.apache.spark.sql.functions._
-import org.apache.spark.sql.types._
 import config.ConfigStore._
 import udfs.UDFs._
 
@@ -19,14 +19,9 @@ object Main {
 
   def graph(spark: SparkSession): Unit = {
 
-    val df_CustomerEdits:  Source            = CustomerEdits(spark)
-    val df_AddDates:       SchemaTransformer = AddDates(spark, df_CustomerEdits)
-    val df_CustomerDimOld: Source            = CustomerDimOld(spark)
-    val df_FixDates:       SchemaTransformer = FixDates(spark, df_CustomerDimOld)
-    OverwriteDelta(spark, df_FixDates)
-    DeltaSCD2Merge(spark, df_AddDates)
-    val df_ReadMerged: Source = ReadMerged(spark)
-    Observe(spark, df_ReadMerged)
+    val df_ReadGoT:        Source        = ReadGoT(spark)
+    val df_FlattenSchema0: FlattenSchema = FlattenSchema0(spark, df_ReadGoT)
+    val df_Reformat0:      Reformat      = Reformat0(spark,      df_FlattenSchema0)
 
   }
 
@@ -36,7 +31,7 @@ object Main {
 
     val spark: SparkSession = SparkSession
       .builder()
-      .appName("deltascd2")
+      .appName("jsonread")
       .config("spark.default.parallelism", 4)
       .enableHiveSupport()
       .getOrCreate()

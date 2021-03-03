@@ -16,7 +16,7 @@ import config.ConfigStore._
 import udfs.UDFs._
 import graph._
 
-@Visual(id = "OverwriteDelta", label = "OverwriteDelta", x = 678, y = 148, phase = 1)
+@Visual(id = "OverwriteDelta", label = "OverwriteDelta", x = 690, y = 140, phase = 1)
 object OverwriteDelta {
 
   @UsesDataset(id = "873", version = 0)
