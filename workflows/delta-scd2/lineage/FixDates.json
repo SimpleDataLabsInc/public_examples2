@@ -1,0 +1,123 @@
+{
+  "name" : "FixDates",
+  "component" : "SchemaTransformer",
+  "transformations" : [ {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "customer_dim_key"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "customer_dim_key"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "first_name"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "first_name"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "last_name"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "last_name"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "middle_initial"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "middle_initial"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "address"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "address"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "city"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "city"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "state"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "state"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "zip_code"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "zip_code"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "customer_number"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "customer_number"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "eff_start_date"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "eff_start_date"
+    },
+    "transformation" : "CAST(`eff_start_date` AS DATE)"
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "eff_end_date"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "eff_end_date"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "is_current"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "is_current"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "is_first"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "is_first"
+    }
+  } ]
+}

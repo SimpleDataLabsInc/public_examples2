@@ -15,18 +15,13 @@ import config.ConfigStore._
 import udfs.UDFs._
 import graph._
 
-@Visual(id = "Cleanup", label = "Cleanup", x = 850, y = 193, phase = 0)
-object Cleanup {
+@Visual(id = "OrderBy0", label = "OrderBy0", x = 832, y = 114, phase = 0)
+object OrderBy0 {
 
-  def apply(spark: SparkSession, in: DataFrame): Reformat = {
+  def apply(spark: SparkSession, in: DataFrame): OrderBy = {
     import spark.implicits._
 
-    val out = in.select(
-      concat(col("first_name"), lit(" "), col("last_name")).as("name"),
-      ceil(col("amount")).as("amount"),
-      (col("customer_id") + lit(100)).as("customer_id"),
-      concat(col("first_name"), lit(" "), col("last_name")).as("full_name")
-    )
+    val out = in.orderBy(col("count").desc)
 
     out
 

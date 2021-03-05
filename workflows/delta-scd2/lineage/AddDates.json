@@ -1,0 +1,84 @@
+{
+  "name" : "AddDates",
+  "component" : "SchemaTransformer",
+  "transformations" : [ {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "customer_number"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "customer_number"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "first_name"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "first_name"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "last_name"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "last_name"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "middle_initial"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "middle_initial"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "address"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "address"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "city"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "city"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "state"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "state"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "zip_code"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "zip_code"
+    }
+  }, {
+    "sources" : [ ],
+    "destination" : {
+      "port" : "out",
+      "name" : "eff_start_date"
+    },
+    "transformation" : "current_date()"
+  } ]
+}

@@ -235,7 +235,15 @@
             "addReplaceColumn" : "customer_id",
             "inputArgs" : [ {
               "type" : "scala",
-              "expr" : "col(\"customer_id\")"
+              "expr" : "col(\"customer_id\") + lit(100)"
+            } ],
+            "enabled" : true
+          }, {
+            "functionName" : "column_expression",
+            "addReplaceColumn" : "full_name",
+            "inputArgs" : [ {
+              "type" : "scala",
+              "expr" : "concat(col(\"first_name\"), lit(\" \"), col(\"last_name\"))"
             } ],
             "enabled" : true
           } ],

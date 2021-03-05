@@ -20,11 +20,11 @@
       },
       "src" : {
         "port" : "out",
-        "process" : "HistoricEvents"
+        "process" : "ReadHistoricEvents"
       },
       "tgt" : {
         "port" : "in",
-        "process" : "ExtractAsTable"
+        "process" : "MakeFlat"
       }
     }, {
       "metadata" : {
@@ -32,27 +32,155 @@
       },
       "src" : {
         "port" : "out",
-        "process" : "ExtractAsTable"
+        "process" : "MakeFlat"
       },
       "tgt" : {
         "port" : "in",
-        "process" : "WriteHistoric"
+        "process" : "Reformat4"
+      }
+    }, {
+      "metadata" : {
+        "route" : "e3"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "Reformat4"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "RowDistributor0"
+      }
+    }, {
+      "metadata" : {
+        "route" : "e4"
+      },
+      "src" : {
+        "port" : "out1",
+        "process" : "RowDistributor0"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "Reformat2"
+      }
+    }, {
+      "metadata" : {
+        "route" : "e5"
+      },
+      "src" : {
+        "port" : "rest",
+        "process" : "RowDistributor0"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "Reformat3"
+      }
+    }, {
+      "metadata" : {
+        "route" : "e6"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "MakeFlat"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "Aggregate0"
+      }
+    }, {
+      "metadata" : {
+        "route" : "e7"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "Aggregate0"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "OrderBy0"
+      }
+    }, {
+      "metadata" : {
+        "route" : "e8"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "OrderBy0"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "Reformat0"
+      }
+    }, {
+      "metadata" : {
+        "route" : "e9"
+      },
+      "src" : {
+        "port" : "out0",
+        "process" : "RowDistributor0"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "Reformat1"
       }
     } ],
     "groups" : [ ],
     "inports" : { },
     "outports" : { },
     "processes" : {
-      "WriteHistoric" : {
-        "component" : "Target",
+      "Reformat2" : {
+        "component" : "Reformat",
         "metadata" : {
-          "label" : "WriteHistoric",
-          "x" : 584,
-          "y" : 123
+          "label" : "Reformat2",
+          "x" : 797,
+          "y" : 393
         },
         "ports" : {
           "inputs" : [ "in" ],
-          "outputs" : [ ]
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "udf_definitions" : [ ],
+          "functions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "Reformat3" : {
+        "component" : "Reformat",
+        "metadata" : {
+          "label" : "Reformat3",
+          "x" : 690,
+          "y" : 542
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "udf_definitions" : [ ],
+          "functions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "ReadHistoricEvents" : {
+        "component" : "Source",
+        "metadata" : {
+          "label" : "ReadHistoricEvents",
+          "x" : 80,
+          "y" : 108
+        },
+        "ports" : {
+          "inputs" : [ ],
+          "outputs" : [ "out" ]
         },
         "properties" : {
           "src_desc" : "",
@@ -60,18 +188,18 @@
           "ramp" : 0,
           "detailedStats" : false,
           "version" : 0,
-          "id" : "885",
+          "id" : "992",
           "udf_definitions" : [ ],
           "limit" : 0
         },
         "ignore" : false
       },
-      "ExtractAsTable" : {
+      "MakeFlat" : {
         "component" : "FlattenSchema",
         "metadata" : {
-          "label" : "ExtractAsTable",
-          "x" : 305,
-          "y" : 124
+          "label" : "MakeFlat",
+          "x" : 320,
+          "y" : 116
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -81,20 +209,6 @@
           "src_desc" : "",
           "phase" : 0,
           "selectColumns" : [ {
-            "targetCol" : "description",
-            "expression" : {
-              "format" : "sql",
-              "expr" : "result.events.description"
-            },
-            "explode" : true
-          }, {
-            "targetCol" : "date",
-            "expression" : {
-              "format" : "sql",
-              "expr" : "result.events.date"
-            },
-            "explode" : true
-          }, {
             "targetCol" : "category1",
             "expression" : {
               "format" : "sql",
@@ -108,6 +222,34 @@
               "expr" : "result.events.category2"
             },
             "explode" : true
+          }, {
+            "targetCol" : "date",
+            "expression" : {
+              "format" : "sql",
+              "expr" : "result.events.date"
+            },
+            "explode" : true
+          }, {
+            "targetCol" : "description",
+            "expression" : {
+              "format" : "sql",
+              "expr" : "result.events.description"
+            },
+            "explode" : true
+          }, {
+            "targetCol" : "granularity",
+            "expression" : {
+              "format" : "sql",
+              "expr" : "result.events.granularity"
+            },
+            "explode" : true
+          }, {
+            "targetCol" : "lang",
+            "expression" : {
+              "format" : "sql",
+              "expr" : "result.events.lang"
+            },
+            "explode" : true
           } ],
           "ramp" : 0,
           "detailedStats" : false,
@@ -119,15 +261,15 @@
         },
         "ignore" : false
       },
-      "HistoricEvents" : {
-        "component" : "Source",
+      "Aggregate0" : {
+        "component" : "Aggregate",
         "metadata" : {
-          "label" : "HistoricEvents",
-          "x" : 70,
+          "label" : "Aggregate0",
+          "x" : 641,
           "y" : 122
         },
         "ports" : {
-          "inputs" : [ ],
+          "inputs" : [ "in" ],
           "outputs" : [ "out" ]
         },
         "properties" : {
@@ -135,9 +277,205 @@
           "phase" : 0,
           "ramp" : 0,
           "detailedStats" : false,
-          "version" : 0,
-          "id" : "884",
+          "columns" : [ {
+            "targetCol" : "category2",
+            "expression" : {
+              "format" : "scala",
+              "expr" : "col(\"category2\")"
+            }
+          }, {
+            "targetCol" : "category1",
+            "expression" : {
+              "format" : "scala",
+              "expr" : "col(\"category1\")"
+            }
+          } ],
           "udf_definitions" : [ ],
+          "aggcols" : [ {
+            "targetCol" : "count",
+            "expression" : {
+              "format" : "scala",
+              "expr" : "count(lit(1))"
+            }
+          } ],
+          "opType" : "groupBy",
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "RowDistributor0" : {
+        "component" : "RowDistributor",
+        "metadata" : {
+          "label" : "RowDistributor0",
+          "x" : 517,
+          "y" : 281
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out0", "out1", "rest" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "condition" : {
+            "out0" : {
+              "expr" : "col(\"category1\") === lit(\"by topic\")",
+              "format" : "scala"
+            },
+            "out1" : {
+              "expr" : "col(\"category1\") === lit(\"by place\")",
+              "format" : "scala"
+            },
+            "rest" : {
+              "expr" : "col(\"category1\") =!= lit(\"by topic\") and col(\"category1\") =!= lit(\"by place\")",
+              "format" : "scala"
+            }
+          },
+          "udf_definitions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "Reformat0" : {
+        "component" : "Reformat",
+        "metadata" : {
+          "label" : "Reformat0",
+          "x" : 1043,
+          "y" : 112
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "udf_definitions" : [ ],
+          "functions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "OrderBy0" : {
+        "component" : "OrderBy",
+        "metadata" : {
+          "label" : "OrderBy0",
+          "x" : 832,
+          "y" : 114
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "columns" : [ {
+            "column" : {
+              "expr" : "col(\"count\")",
+              "format" : "scala"
+            },
+            "order" : "desc"
+          } ],
+          "udf_definitions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "Reformat4" : {
+        "component" : "Reformat",
+        "metadata" : {
+          "label" : "Reformat4",
+          "x" : 332,
+          "y" : 370
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "udf_definitions" : [ ],
+          "functions" : [ {
+            "functionName" : "column_expression",
+            "addReplaceColumn" : "category1",
+            "inputArgs" : [ {
+              "type" : "scala",
+              "expr" : "lower(col(\"category1\"))"
+            } ],
+            "enabled" : true
+          }, {
+            "functionName" : "column_expression",
+            "addReplaceColumn" : "category2",
+            "inputArgs" : [ {
+              "type" : "scala",
+              "expr" : "lower(col(\"category2\"))"
+            } ],
+            "enabled" : true
+          }, {
+            "functionName" : "column_expression",
+            "addReplaceColumn" : "date",
+            "inputArgs" : [ {
+              "type" : "scala",
+              "expr" : "col(\"date\")"
+            } ],
+            "enabled" : true
+          }, {
+            "functionName" : "column_expression",
+            "addReplaceColumn" : "description",
+            "inputArgs" : [ {
+              "type" : "scala",
+              "expr" : "col(\"description\")"
+            } ],
+            "enabled" : true
+          }, {
+            "functionName" : "column_expression",
+            "addReplaceColumn" : "granularity",
+            "inputArgs" : [ {
+              "type" : "scala",
+              "expr" : "col(\"granularity\")"
+            } ],
+            "enabled" : true
+          }, {
+            "functionName" : "column_expression",
+            "addReplaceColumn" : "lang",
+            "inputArgs" : [ {
+              "type" : "scala",
+              "expr" : "col(\"lang\")"
+            } ],
+            "enabled" : true
+          } ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "Reformat1" : {
+        "component" : "Reformat",
+        "metadata" : {
+          "label" : "Reformat1",
+          "x" : 788,
+          "y" : 248
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "udf_definitions" : [ ],
+          "functions" : [ ],
           "limit" : 0
         },
         "ignore" : false

@@ -1,0 +1,93 @@
+{
+  "name" : "PrepareComponent",
+  "component" : "Reformat",
+  "transformations" : [ {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "customer_id"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "id"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "first_name"
+    }, {
+      "port" : "in",
+      "name" : "last_name"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "full_name"
+    },
+    "transformation" : "concat(`first_name`, ' ', `last_name`)"
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "phone"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "phone"
+    },
+    "transformation" : "substring(`phone`, 2, 10)"
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "phone"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "phone_area_code"
+    },
+    "transformation" : "substring(`phone`, 0, 2)"
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "email"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "email"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "email"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "email_provider"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "orders"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "orders"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "amount"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "amount"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "account_flags"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "delinquent_last_90_days"
+    },
+    "transformation" : "CASE WHEN (substring(`account_flags`, 1, 1) = 'D') THEN 'Y' ELSE 'N' END"
+  } ]
+}

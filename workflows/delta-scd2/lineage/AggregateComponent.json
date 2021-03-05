@@ -1,0 +1,114 @@
+{
+  "name" : "AggregateComponent",
+  "component" : "Aggregate",
+  "transformations" : [ {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "order_id"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "order_id"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "order_id"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "orders"
+    },
+    "transformation" : "count(`order_id`)"
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "amount"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "amount"
+    },
+    "transformation" : "sum(`amount`)"
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "customer_id"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "customer_id"
+    },
+    "transformation" : "max(`customer_id`)"
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "first_name"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "first_name"
+    },
+    "transformation" : "max(`first_name`)"
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "last_name"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "last_name"
+    },
+    "transformation" : "max(`last_name`)"
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "phone"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "phone"
+    },
+    "transformation" : "max(`phone`)"
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "email"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "email"
+    },
+    "transformation" : "max(`email`)"
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "country_code"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "country_code"
+    },
+    "transformation" : "max(`country_code`)"
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "account_length_days"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "account_length_days"
+    },
+    "transformation" : "max(`account_length_days`)"
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "account_flags"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "account_flags"
+    },
+    "transformation" : "max(`account_flags`)"
+  } ]
+}

@@ -15,20 +15,17 @@ import config.ConfigStore._
 import udfs.UDFs._
 import graph._
 
-@Visual(id = "Cleanup", label = "Cleanup", x = 850, y = 193, phase = 0)
-object Cleanup {
+@Visual(id = "RowDistributor0", label = "RowDistributor0", x = 517, y = 281, phase = 0)
+object RowDistributor0 {
 
-  def apply(spark: SparkSession, in: DataFrame): Reformat = {
+  def apply(spark: SparkSession, in: DataFrame): (RowDistributor, RowDistributor, RowDistributor) = {
     import spark.implicits._
 
-    val out = in.select(
-      concat(col("first_name"), lit(" "), col("last_name")).as("name"),
-      ceil(col("amount")).as("amount"),
-      (col("customer_id") + lit(100)).as("customer_id"),
-      concat(col("first_name"), lit(" "), col("last_name")).as("full_name")
-    )
+    val out0 = in.filter(col("category1") === lit("by topic"))
+    val out1 = in.filter(col("category1") === lit("by place"))
+    val rest = in.filter((col("category1") =!= lit("by topic")).and(col("category1") =!= lit("by place")))
 
-    out
+    (out0, out1, rest)
 
   }
 

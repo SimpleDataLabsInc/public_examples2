@@ -1,3 +1,4 @@
+import org.apache.spark.sql.types._
 import io.prophecy.libs._
 import io.prophecy.libs.UDFUtils._
 import io.prophecy.libs.Component._
@@ -8,7 +9,6 @@ import org.apache.spark.sql.ProphecyDataFrame._
 import org.apache.spark._
 import org.apache.spark.sql._
 import org.apache.spark.sql.functions._
-import org.apache.spark.sql.types._
 import config.ConfigStore._
 import udfs.UDFs._
 
@@ -19,9 +19,20 @@ object Main {
 
   def graph(spark: SparkSession): Unit = {
 
-    val df_HistoricEvents: Source        = HistoricEvents(spark)
-    val df_ExtractAsTable: FlattenSchema = ExtractAsTable(spark, df_HistoricEvents)
-    WriteHistoric(spark, df_ExtractAsTable)
+    val df_ReadHistoricEvents: Source        = ReadHistoricEvents(spark)
+    val df_MakeFlat:           FlattenSchema = MakeFlat(spark,  df_ReadHistoricEvents)
+    val df_Reformat4:          Reformat      = Reformat4(spark, df_MakeFlat)
+    val (df_RowDistributor0_0, df_RowDistributor0_1, df_RowDistributor0_2): (
+      RowDistributor,
+      RowDistributor,
+      RowDistributor
+    ) = RowDistributor0(spark, df_Reformat4)
+    val df_Reformat2:  Reformat  = Reformat2(spark,  df_RowDistributor0_1)
+    val df_Reformat3:  Reformat  = Reformat3(spark,  df_RowDistributor0_2)
+    val df_Aggregate0: Aggregate = Aggregate0(spark, df_MakeFlat)
+    val df_OrderBy0:   OrderBy   = OrderBy0(spark,   df_Aggregate0)
+    val df_Reformat0:  Reformat  = Reformat0(spark,  df_OrderBy0)
+    val df_Reformat1:  Reformat  = Reformat1(spark,  df_RowDistributor0_0)
 
   }
 

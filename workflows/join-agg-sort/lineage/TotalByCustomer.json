@@ -1,0 +1,44 @@
+{
+  "name" : "TotalByCustomer",
+  "component" : "Aggregate",
+  "transformations" : [ {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "customer_id"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "customer_id"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "first_name"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "first_name"
+    },
+    "transformation" : "max(`first_name`)"
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "last_name"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "last_name"
+    },
+    "transformation" : "max(`last_name`)"
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "amount"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "amount"
+    },
+    "transformation" : "sum(`amount`)"
+  } ]
+}

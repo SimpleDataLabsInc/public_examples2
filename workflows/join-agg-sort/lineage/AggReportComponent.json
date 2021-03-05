@@ -1,0 +1,51 @@
+{
+  "name" : "AggReportComponent",
+  "component" : "Aggregate",
+  "transformations" : [ {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "id"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "id"
+    }
+  }, {
+    "sources" : [ ],
+    "destination" : {
+      "port" : "out",
+      "name" : "report_title"
+    },
+    "transformation" : "'VAT_Summary_Report'"
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "id"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "customers"
+    },
+    "transformation" : "count(`id`)"
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "amount"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "amount_total"
+    },
+    "transformation" : "sum(`amount`)"
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "orders"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "orders_total"
+    },
+    "transformation" : "sum(CAST(`orders` AS BIGINT))"
+  } ]
+}

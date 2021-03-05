@@ -1,15 +1,8 @@
 {
-  "inputProperties" : {
-    "properties" : {
-      "multiLine" : true
-    }
-  },
-  "commonProperties" : {
-    "properties" : {
-      "location" : "dbfs:/FileStore/tables/old_events.json"
-    }
-  },
-  "datasetId" : "884",
+  "description" : "Historical events from 1000AD to 1500AD",
+  "datasetId" : "986",
+  "dataFormat" : "json",
+  "datasetType" : "File",
   "schema" : {
     "type" : "struct",
     "fields" : [ {
@@ -69,7 +62,14 @@
       "metadata" : { }
     } ]
   },
-  "datasetType" : "File",
-  "description" : "",
-  "dataFormat" : "json"
+  "commonProperties" : {
+    "properties" : {
+      "location" : "dbfs:/FileStore/tables/historic_1500.json"
+    }
+  },
+  "inputProperties" : {
+    "properties" : {
+      "multiLine" : true
+    }
+  }
 }

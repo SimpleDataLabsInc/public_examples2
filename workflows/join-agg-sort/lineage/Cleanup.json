@@ -1,0 +1,37 @@
+{
+  "name" : "Cleanup",
+  "component" : "Reformat",
+  "transformations" : [ {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "first_name"
+    }, {
+      "port" : "in",
+      "name" : "last_name"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "name"
+    },
+    "transformation" : "concat(`first_name`, ' ', `last_name`)"
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "amount"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "amount"
+    },
+    "transformation" : "CEIL(`amount`)"
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "customer_id"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "customer_id"
+    }
+  } ]
+}
