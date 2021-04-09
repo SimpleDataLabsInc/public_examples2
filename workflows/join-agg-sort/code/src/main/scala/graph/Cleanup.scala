@@ -15,7 +15,7 @@ import config.ConfigStore._
 import udfs.UDFs._
 import graph._
 
-@Visual(id = "Cleanup", label = "Cleanup", x = 850, y = 193, phase = 0)
+@Visual(id = "Cleanup", label = "Cleanup", x = 848, y = 191, phase = 0)
 object Cleanup {
 
   def apply(spark: SparkSession, in: DataFrame): Reformat = {
@@ -24,8 +24,7 @@ object Cleanup {
     val out = in.select(
       concat(col("first_name"), lit(" "), col("last_name")).as("name"),
       ceil(col("amount")).as("amount"),
-      (col("customer_id") + lit(100)).as("customer_id"),
-      concat(col("first_name"), lit(" "), col("last_name")).as("full_name")
+      col("customer_id")
     )
 
     out

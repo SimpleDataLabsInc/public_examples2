@@ -33,12 +33,7 @@ object Main {
     import config._
     ConfigStore.Config = ConfigurationFactoryImpl.fromCLI(args)
 
-    val spark: SparkSession = SparkSession
-      .builder()
-      .appName("joinaggsort")
-      .config("spark.default.parallelism", 4)
-      .enableHiveSupport()
-      .getOrCreate()
+    val spark = SparkSession.builder().appName("joinaggsort").enableHiveSupport().getOrCreate()
 
     val sc = spark.sparkContext
     sc.setCheckpointDir("/tmp/checkpoints")

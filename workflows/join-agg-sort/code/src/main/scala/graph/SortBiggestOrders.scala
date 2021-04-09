@@ -15,7 +15,7 @@ import config.ConfigStore._
 import udfs.UDFs._
 import graph._
 
-@Visual(id = "SortBiggestOrders", label = "SortBiggestOrders", x = 1104, y = 194, phase = 0)
+@Visual(id = "SortBiggestOrders", label = "SortBiggestOrders", x = 1104, y = 195, phase = 0)
 object SortBiggestOrders {
 
   def apply(spark: SparkSession, in: DataFrame): OrderBy = {

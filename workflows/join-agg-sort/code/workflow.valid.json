@@ -12,6 +12,12 @@
       "udfs" : {
         "language" : "scala",
         "udfs" : [ ]
+      },
+      "sparkOptions" : {
+        "options" : {
+          "spark.app.name" : "joinaggsort",
+          "spark.sql.catalogImplementation" : "hive"
+        }
       }
     },
     "connections" : [ {
@@ -174,7 +180,7 @@
         "metadata" : {
           "label" : "SortBiggestOrders",
           "x" : 1104,
-          "y" : 194
+          "y" : 195
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -201,8 +207,8 @@
         "component" : "Reformat",
         "metadata" : {
           "label" : "Cleanup",
-          "x" : 850,
-          "y" : 193
+          "x" : 848,
+          "y" : 191
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -235,15 +241,7 @@
             "addReplaceColumn" : "customer_id",
             "inputArgs" : [ {
               "type" : "scala",
-              "expr" : "col(\"customer_id\") + lit(100)"
-            } ],
-            "enabled" : true
-          }, {
-            "functionName" : "column_expression",
-            "addReplaceColumn" : "full_name",
-            "inputArgs" : [ {
-              "type" : "scala",
-              "expr" : "concat(col(\"first_name\"), lit(\" \"), col(\"last_name\"))"
+              "expr" : "col(\"customer_id\")"
             } ],
             "enabled" : true
           } ],
@@ -255,8 +253,8 @@
         "component" : "Source",
         "metadata" : {
           "label" : "Customer",
-          "x" : 88,
-          "y" : 179
+          "x" : 89,
+          "y" : 180
         },
         "ports" : {
           "inputs" : [ ],
@@ -279,7 +277,7 @@
         "metadata" : {
           "label" : "TotalByCustomer",
           "x" : 601,
-          "y" : 192
+          "y" : 193
         },
         "ports" : {
           "inputs" : [ "in" ],

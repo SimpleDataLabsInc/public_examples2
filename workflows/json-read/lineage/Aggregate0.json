@@ -1,0 +1,30 @@
+{
+  "name" : "Aggregate0",
+  "component" : "Aggregate",
+  "transformations" : [ {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "category2"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "category2"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "category1"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "category1"
+    }
+  }, {
+    "sources" : [ ],
+    "destination" : {
+      "port" : "out",
+      "name" : "count"
+    },
+    "transformation" : "count(1)"
+  } ]
+}

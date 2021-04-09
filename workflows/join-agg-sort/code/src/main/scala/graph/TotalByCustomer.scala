@@ -15,7 +15,7 @@ import config.ConfigStore._
 import udfs.UDFs._
 import graph._
 
-@Visual(id = "TotalByCustomer", label = "TotalByCustomer", x = 601, y = 192, phase = 0)
+@Visual(id = "TotalByCustomer", label = "TotalByCustomer", x = 601, y = 193, phase = 0)
 object TotalByCustomer {
 
   def apply(spark: SparkSession, in: DataFrame): Aggregate = {

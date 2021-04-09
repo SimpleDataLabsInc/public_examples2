@@ -1,0 +1,15 @@
+{
+  "tests" : [ {
+    "name" : "Test_KaKVeScLbV",
+    "data" : {
+      "in" : {
+        "columns" : [ "first_name", "last_name", "amount", "customer_id" ],
+        "values" : [ [ "Waite", "Petschelt", "586.08", "26" ], [ "Waite", "Petschelt", "9.85", "26" ], [ "Constance", "Sleith", "287.5", "63" ], [ "Viva", "Schulke", "514.19", "35" ], [ "Barrett", "Amies", "154.41", "31" ], [ "Kit", "Skamell", "924.89", "51" ], [ "Viva", "Schulke", "198.05", "35" ], [ "Gillan", "Heritege", "121.03", "100" ], [ "Ogdan", "Bussetti", "551.87", "94" ], [ "Homer", "Lindstedt", "343.59", "62" ], [ "Marjy", "Della", "60.72", "3" ], [ "Gillan", "Heritege", "449.74", "100" ], [ "Ogdan", "Bussetti", "915.25", "94" ], [ "Balduin", "Birdsall", "726.97", "84" ], [ "Barrett", "Amies", "607.46", "31" ], [ "Jonis", "Bigly", "174.29", "10" ], [ "Barrett", "Amies", "747.61", "31" ], [ "Dallas", "Davoren", "383.14", "14" ], [ "Twyla", "Coppledike", "283.1", "98" ], [ "Casey", "McFater", "825.13", "29" ], [ "Leigha", "Yurikov", "242.69", "45" ], [ "Dallas", "Davoren", "218.55", "14" ], [ "Heywood", "Stork", "563.05", "42" ], [ "Evelyn", "Goulbourne", "556.41", "65" ], [ "Sibley", "Reasun", "269.46", "8" ], [ "Griz", "Roubeix", "250.99", "1" ], [ "Baryram", "Ades", "745.73", "61" ], [ "Lewes", "Kennan", "586.83", "92" ], [ "Uriel", "Iacivelli", "259.29", "71" ], [ "Earl", "Colenutt", "778.37", "93" ], [ "Baryram", "Ades", "237.5", "61" ], [ "Leigh", "Mackett", "598.37", "81" ], [ "Viva", "Schulke", "372.04", "35" ], [ "Tish", "Mankor", "809.84", "83" ], [ "Violet", "Alston", "877.45", "13" ], [ "Deeanne", "Kaye", "776.76", "77" ], [ "Deeanne", "Kaye", "843.36", "77" ], [ "Aguistin", "Lipman", "71.47", "64" ], [ "Alyssa", "Mance", "305.39", "25" ], [ "Queenie", "Basire", "696.56", "48" ] ]
+      },
+      "out" : {
+        "columns" : [ "first_name", "last_name", "amount" ],
+        "values" : [ [ "Barrett", "Amies", "1509.48" ], [ "Evelyn", "Goulbourne", "556.41" ], [ "Leigh", "Mackett", "598.37" ], [ "Waite", "Petschelt", "595.9300000000001" ], [ "Earl", "Colenutt", "778.37" ], [ "Griz", "Roubeix", "250.99" ], [ "Violet", "Alston", "877.45" ], [ "Marjy", "Della", "60.72" ], [ "Ogdan", "Bussetti", "1467.12" ], [ "Queenie", "Basire", "696.56" ], [ "Lewes", "Kennan", "586.83" ], [ "Aguistin", "Lipman", "71.47" ], [ "Baryram", "Ades", "983.23" ], [ "Viva", "Schulke", "1084.28" ], [ "Sibley", "Reasun", "269.46" ], [ "Gillan", "Heritege", "570.77" ], [ "Balduin", "Birdsall", "726.97" ], [ "Kit", "Skamell", "924.89" ], [ "Constance", "Sleith", "287.5" ], [ "Jonis", "Bigly", "174.29" ], [ "Deeanne", "Kaye", "1620.12" ], [ "Leigha", "Yurikov", "242.69" ], [ "Alyssa", "Mance", "305.39" ], [ "Homer", "Lindstedt", "343.59" ], [ "Casey", "McFater", "825.13" ], [ "Twyla", "Coppledike", "283.1" ], [ "Tish", "Mankor", "809.84" ], [ "Uriel", "Iacivelli", "259.29" ], [ "Dallas", "Davoren", "601.69" ], [ "Heywood", "Stork", "563.05" ] ]
+      }
+    }
+  } ]
+}

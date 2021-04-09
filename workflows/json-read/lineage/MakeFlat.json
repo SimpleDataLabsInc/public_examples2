@@ -1,0 +1,23 @@
+{
+  "name" : "MakeFlat",
+  "component" : "FlattenSchema",
+  "transformations" : [ {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "result"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "result"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "result-events"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "result-events"
+    }
+  } ]
+}

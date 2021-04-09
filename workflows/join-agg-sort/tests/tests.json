@@ -1,0 +1,19 @@
+{
+  "tests" : [ {
+    "test" : "graph.TotalByCustomer",
+    "dataFile" : "graph.TotalByCustomer.json",
+    "outPort" : "out"
+  }, {
+    "test" : "graph.Cleanup",
+    "dataFile" : "graph.Cleanup.json",
+    "outPort" : "out"
+  }, {
+    "test" : "graph.SortBiggestOrders",
+    "dataFile" : "graph.SortBiggestOrders.json",
+    "outPort" : "out"
+  }, {
+    "test" : "graph.PerCustomer",
+    "dataFile" : "graph.PerCustomer.json",
+    "outPort" : "out"
+  } ]
+}

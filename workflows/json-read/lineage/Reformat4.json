@@ -1,0 +1,61 @@
+{
+  "name" : "Reformat4",
+  "component" : "Reformat",
+  "transformations" : [ {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "category1"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "category1"
+    },
+    "transformation" : "lower(`category1`)"
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "category2"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "category2"
+    },
+    "transformation" : "lower(`category2`)"
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "date"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "date"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "description"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "description"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "granularity"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "granularity"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "lang"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "lang"
+    }
+  } ]
+}

@@ -1,0 +1,274 @@
+{
+  "resolvers" : [ ],
+  "graph" : {
+    "metainfo" : {
+      "cluster" : "local",
+      "id" : "id",
+      "memory" : 1,
+      "mode" : "batch",
+      "processors" : 1,
+      "language" : "scala",
+      "interimMode" : "full",
+      "udfs" : {
+        "language" : "scala",
+        "udfs" : [ ]
+      },
+      "sparkOptions" : {
+        "options" : {
+          "spark.default.parallelism" : "4",
+          "spark.app.name" : "dbdemo",
+          "spark.sql.catalogImplementation" : "hive"
+        }
+      }
+    },
+    "connections" : [ {
+      "metadata" : {
+        "route" : "e1"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "Customer"
+      },
+      "tgt" : {
+        "port" : "left",
+        "process" : "Join0"
+      }
+    }, {
+      "metadata" : {
+        "route" : "e2"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "Orders"
+      },
+      "tgt" : {
+        "port" : "right",
+        "process" : "Join0"
+      }
+    }, {
+      "metadata" : {
+        "route" : "e3"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "Join0"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "Cleanup"
+      }
+    }, {
+      "metadata" : {
+        "route" : "e4"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "Cleanup"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "Reformat0"
+      }
+    }, {
+      "metadata" : {
+        "route" : "e5"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "Reformat0"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "Reformat1"
+      }
+    } ],
+    "groups" : [ ],
+    "inports" : { },
+    "outports" : { },
+    "processes" : {
+      "Join0" : {
+        "component" : "Join",
+        "metadata" : {
+          "label" : "Join0",
+          "x" : 387,
+          "y" : 115
+        },
+        "ports" : {
+          "inputs" : [ "left", "right" ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "joinCondition" : {
+            "format" : "scala",
+            "expr" : "col(\"left.customer_id\") === col(\"right.customer_id\")"
+          },
+          "selectColumns" : [ {
+            "targetCol" : "customer_id",
+            "isLeftTableCol" : true,
+            "expression" : {
+              "format" : "scala",
+              "expr" : "col(\"left.customer_id\")"
+            }
+          }, {
+            "targetCol" : "first_name",
+            "isLeftTableCol" : true,
+            "expression" : {
+              "format" : "scala",
+              "expr" : "col(\"left.first_name\")"
+            }
+          }, {
+            "targetCol" : "last_name",
+            "isLeftTableCol" : true,
+            "expression" : {
+              "format" : "scala",
+              "expr" : "col(\"left.last_name\")"
+            }
+          }, {
+            "targetCol" : "amount",
+            "isLeftTableCol" : false,
+            "expression" : {
+              "format" : "scala",
+              "expr" : "col(\"right.amount\")"
+            }
+          } ],
+          "ramp" : 0,
+          "detailedStats" : false,
+          "udf_definitions" : [ ],
+          "joinType" : "inner",
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "Cleanup" : {
+        "component" : "Reformat",
+        "metadata" : {
+          "label" : "Cleanup",
+          "x" : 625,
+          "y" : 114
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "udf_definitions" : [ ],
+          "functions" : [ {
+            "functionName" : "column_expression",
+            "addReplaceColumn" : "name",
+            "inputArgs" : [ {
+              "type" : "scala",
+              "expr" : "concat(col(\"first_name\"), lit(\" \"), col(\"last_name\"))"
+            } ],
+            "enabled" : true
+          }, {
+            "functionName" : "column_expression",
+            "addReplaceColumn" : "amount",
+            "inputArgs" : [ {
+              "type" : "scala",
+              "expr" : "ceil(col(\"amount\"))"
+            } ],
+            "enabled" : true
+          } ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "Customer" : {
+        "component" : "Source",
+        "metadata" : {
+          "label" : "Customer",
+          "x" : 100,
+          "y" : 100
+        },
+        "ports" : {
+          "inputs" : [ ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "version" : 0,
+          "id" : "877",
+          "udf_definitions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "Reformat0" : {
+        "component" : "Reformat",
+        "metadata" : {
+          "label" : "Reformat0",
+          "x" : 827,
+          "y" : 113
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "udf_definitions" : [ ],
+          "functions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "Orders" : {
+        "component" : "Source",
+        "metadata" : {
+          "label" : "Orders",
+          "x" : 96,
+          "y" : 266
+        },
+        "ports" : {
+          "inputs" : [ ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "version" : 0,
+          "id" : "878",
+          "udf_definitions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "Reformat1" : {
+        "component" : "Reformat",
+        "metadata" : {
+          "label" : "Reformat1",
+          "x" : 1073,
+          "y" : 109
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "udf_definitions" : [ ],
+          "functions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      }
+    }
+  }
+}

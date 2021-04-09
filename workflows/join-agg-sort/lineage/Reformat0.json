@@ -1,0 +1,55 @@
+{
+  "name" : "Reformat0",
+  "component" : "Reformat",
+  "transformations" : [ {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "first_name"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "first_name"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "email"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "email"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "phone"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "phone"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "first_name"
+    }, {
+      "port" : "in",
+      "name" : "last_name"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "full_name"
+    },
+    "transformation" : "concat(`first_name`, `last_name`)"
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "first_name"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "when_case"
+    },
+    "transformation" : "CASE WHEN (CAST(concat(`first_name`) AS INT) = 1) THEN 1 END"
+  } ]
+}

@@ -12,6 +12,13 @@
       "udfs" : {
         "language" : "scala",
         "udfs" : [ ]
+      },
+      "sparkOptions" : {
+        "options" : {
+          "spark.default.parallelism" : "4",
+          "spark.app.name" : "jsonread",
+          "spark.sql.catalogImplementation" : "hive"
+        }
       }
     },
     "connections" : [ {

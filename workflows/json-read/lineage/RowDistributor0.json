@@ -1,0 +1,8 @@
+{
+  "name" : "RowDistributor0",
+  "component" : "RowDistributor",
+  "transformations" : [ {
+    "sources" : [ ],
+    "transformation" : "Filter((NOT (category1#44 = by topic) && NOT (category1#44 = by place)))"
+  } ]
+}
